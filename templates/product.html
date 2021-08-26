@@ -1,0 +1,341 @@
+{% extends "base.html" %}
+
+{% block style %}
+
+/* "> *" has the effect to apply the CSS to all direct children of .custom-radio-list --> */
+.custom-radio-list > * {
+list-style-type: none;
+margin-right: 30px;
+}
+.custom-radio-list-two > * {
+list-style-type: none;
+}
+
+/*____________________________________________________________*/
+/* Carousel and Navbar styling */
+/*____________________________________________________________*/
+.carousel {
+margin: 0px;
+height: auto;
+}
+.carousel .carousel-indicators {
+bottom: -15px;
+}
+
+.carousel .carousel-indicators li {
+background-color: #999 !important;
+height: 7px !important;
+border-radius: 0px !important;
+width: 10% !important;
+}
+
+.carousel .carousel-indicators .active {
+background-color: #111 !important;
+border-radius: 0%;
+}
+.carousel .carousel-control-prev-icon, .carousel-control-next-icon {
+background-color: grey !important;
+}
+
+
+
+{% endblock style %}
+
+{% block content %}
+
+<main class="mt-0 pt-4">
+
+    <div class="container dark-grey-text mt-0">
+
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+
+                <!-- if there is more than one image of the product, then create carousel, else no carousel-->
+                {% if uniqueobject.image2.url != "" %}
+
+                <div class="carousel slide" data-bs-ride="carousel" id="carousel{{ uniqueobject.title }}"
+                     data-bs-interval="5000">
+                    <ol class="carousel-indicators">
+                        <li class="active" data-bs-slide-to="0"
+                            data-bs-target="#carousel{{ uniqueobject.title }}"></li>
+                        {% if uniqueobject.image2.url != '' %}
+                        <li data-bs-slide-to="1" data-bs-target="#carousel{{ uniqueobject.title }}"></li>
+                        {% endif %}
+                        {% if uniqueobject.image3.url != '' %}
+                        <li data-bs-slide-to="2" data-bs-target="#carousel{{ uniqueobject.title }}"></li>
+                        {% endif %}
+                        {% if uniqueobject.image4.url != '' %}
+                        <li data-bs-slide-to="3" data-bs-target="#carousel{{ uniqueobject.title }}"></li>
+                        {% endif %}
+                        {% if uniqueobject.image5.url != '' %}
+                        <li data-bs-slide-to="4" data-bs-target="#carousel{{ uniqueobject.title }}"></li>
+                        {% endif %}
+                        {% if uniqueobject.image6.url != '' %}
+                        <li data-bs-slide-to="5" data-bs-target="#carousel{{ uniqueobject.title }}"></li>
+                        {% endif %}
+                        {% if uniqueobject.image7.url != '' %}
+                        <li data-bs-slide-to="6" data-bs-target="#carousel{{ uniqueobject.title }}"></li>
+                        {% endif %}
+                        {% if uniqueobject.image8.url != '' %}
+                        <li data-bs-slide-to="7" data-bs-target="#carousel{{ uniqueobject.title }}"></li>
+                        {% endif %}
+                        {% if uniqueobject.image9.url != '' %}
+                        <li data-bs-slide-to="8" data-bs-target="#carousel{{ uniqueobject.title }}"></li>
+                        {% endif %}
+                        {% if uniqueobject.image10.url != '' %}
+                        <li data-bs-slide-to="9" data-bs-target="#carousel{{ uniqueobject.title }}"></li>
+                        {% endif %}
+
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{ uniqueobject.image.url }}" class="img-fluid" alt="First slide">
+                        </div>
+
+                        {% if uniqueobject.image2.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ uniqueobject.image2.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if uniqueobject.image3.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ uniqueobject.image3.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if uniqueobject.image4.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ uniqueobject.image4.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if uniqueobject.image5.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ uniqueobject.image5.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if uniqueobject.image6.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ uniqueobject.image6.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if uniqueobject.image7.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ uniqueobject.image7.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if uniqueobject.image8.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ uniqueobject.image8.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if uniqueobject.image9.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ uniqueobject.image9.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if uniqueobject.image10.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ uniqueobject.image10.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+
+
+                        <button class="carousel-control-prev" data-bs-slide="prev"
+                                href="#carousel{{ uniqueobject.title }}"
+                                role="button"><span
+                                aria-hidden="true" class="carousel-control-prev-icon"></span> <span
+                                class="sr-only">Previous</span></button>
+                        <button class="carousel-control-next" data-bs-slide="next"
+                                href="#carousel{{ uniqueobject.title }}"
+                                role="button"><span
+                                aria-hidden="true" class="carousel-control-next-icon"></span> <span
+                                class="sr-only">Next</span></button>
+
+                    </div>
+                </div>
+
+                {% else %}
+                <img src="{{ uniqueobject.image.url }}" class="img-fluid" alt="">
+                {% endif %}
+
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4 mt-5">
+
+                <!--Content-->
+                <div class="p-4">
+
+                    <div class="mb-3">
+                        <a href="">
+                            <span class="badge purple mr-1">{{ uniqueobject.get_category_display }}</span>
+                        </a>
+                    </div>
+
+                    <h2>{{ uniqueobject.title }}</h2>
+
+
+                    <p class="lead">
+                        {% if uniqueobject.discount_price %}
+                        <span class="mr-1">
+                <del>${{ uniqueobject.price }}</del>
+              </span>
+                        <span>${{ uniqueobject.discount_price }}</span>
+                        {% else %}
+                        <span>${{ uniqueobject.price }}</span>
+                        {% endif %}
+                    </p>
+
+                    <p class="lead font-weight-bold">Description</p>
+
+                    <p>{{ uniqueobject.description }}</p>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.chosenSize }}
+                        <br>
+                        {{ form.chosenColor }}
+                        <br><br>
+                        {{ form.quantity }}
+                        <br><br>
+
+                        {% comment %}
+                        <form class="d-flex justify-content-left">
+                            <!-- Default input -->
+                            <input type="number" value="1" aria-label="Search" class="form-control"
+                                   style="width: 100px">
+                            <button class="btn btn-primary btn-md my-0 p" type="submit">
+                                Add to cart
+                                <i class="fas fa-shopping-cart ml-1"></i>
+                            </button>
+
+                        </form>
+                        {% endcomment %}
+
+                        <button type="submit" href="{{ uniqueobject.get_add_to_cart_url }}"
+                                class="btn btn-primary btn-md my-0 p">
+                            Añadir al carrito
+                            <i class="fas fa-shopping-cart ml-1"></i>
+                        </button>
+
+                        {% comment %}
+                        <button href="{{ uniqueobject.get_remove_from_cart_url }}" class="btn btn-danger btn-md my-0 p">
+                            Remove from cart
+                        </button>
+                        {% endcomment %}
+
+                    </form>
+
+                </div>
+                <!--Content-->
+
+
+                <p id="demo"></p>
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+    </div>
+</main>
+
+{% endblock content %}
+
+{% block script %}
+<script>
+function chooseSize() {
+var chosenSize = document.getElementById("id_chosenSize");
+
+if ("{{ uniqueobject.sizeS }}" == "False") {
+chosenSize.getElementsByTagName("li")[0].style.display = "none";
+}
+if ("{{ uniqueobject.sizeM }}" == "False") {
+chosenSize.getElementsByTagName("li")[1].style.display = "none";
+}
+if ("{{ uniqueobject.sizeL }}" == "False") {
+chosenSize.getElementsByTagName("li")[2].style.display = "none";
+}
+if ("{{ uniqueobject.sizeXL }}" == "False") {
+chosenSize.getElementsByTagName("li")[3].style.display = "none";
+}
+
+var chosenColor = document.getElementById("id_chosenColor").options[0].innerHTML = "{{ uniqueobject.color }}";
+var chosenColor = document.getElementById("id_chosenColor").options[0].value = "{{ uniqueobject.color }}";
+var chosenColor = document.getElementById("id_chosenColor").options[1].innerHTML = "{{ uniqueobject.color2 }}";
+var chosenColor = document.getElementById("id_chosenColor").options[1].value = "{{ uniqueobject.color2 }}";
+
+//append new objects to select box if there are available colors
+if ("{{ uniqueobject.color3 }}" != "None") {
+var sel = document.getElementById("id_chosenColor");
+var opt = document.createElement('option');
+opt.appendChild( document.createTextNode('{{ uniqueobject.color3 }}') );
+opt.value = '{{ uniqueobject.color3 }}';
+sel.appendChild(opt);
+}
+
+if ("{{ uniqueobject.color4 }}" != "None") {
+var sel = document.getElementById("id_chosenColor");
+var opt = document.createElement('option');
+opt.appendChild( document.createTextNode('{{ uniqueobject.color4 }}') );
+opt.value = '{{ uniqueobject.color4 }}';
+sel.appendChild(opt);
+}
+
+if ("{{ uniqueobject.color5 }}" != "None") {
+var sel = document.getElementById("id_chosenColor");
+var opt = document.createElement('option');
+opt.appendChild( document.createTextNode('{{ uniqueobject.color5 }}') );
+opt.value = '{{ uniqueobject.color5 }}';
+sel.appendChild(opt);
+}
+
+if ("{{ uniqueobject.color6 }}" != "None") {
+var sel = document.getElementById("id_chosenColor");
+var opt = document.createElement('option');
+opt.appendChild( document.createTextNode('{{ uniqueobject.color6 }}') );
+opt.value = '{{ uniqueobject.color6 }}';
+sel.appendChild(opt);
+}
+
+if ("{{ uniqueobject.color7 }}" != "None") {
+var sel = document.getElementById("id_chosenColor");
+var opt = document.createElement('option');
+opt.appendChild( document.createTextNode('{{ uniqueobject.color7 }}') );
+opt.value = '{{ uniqueobject.color7 }}';
+sel.appendChild(opt);
+}
+
+if ("{{ uniqueobject.color8 }}" != "None") {
+var sel = document.getElementById("id_chosenColor");
+var opt = document.createElement('option');
+opt.appendChild( document.createTextNode('{{ uniqueobject.color8 }}') );
+opt.value = '{{ uniqueobject.color8 }}';
+sel.appendChild(opt);
+}
+
+if ("{{ uniqueobject.color9 }}" != "None") {
+var sel = document.getElementById("id_chosenColor");
+var opt = document.createElement('option');
+opt.appendChild( document.createTextNode('{{ uniqueobject.color9 }}') );
+opt.value = '{{ uniqueobject.color9 }}';
+sel.appendChild(opt);
+}
+
+if ("{{ uniqueobject.color10 }}" != "None") {
+var sel = document.getElementById("id_chosenColor");
+var opt = document.createElement('option');
+opt.appendChild( document.createTextNode('{{ uniqueobject.color10 }}') );
+opt.value = '{{ uniqueobject.color10 }}';
+sel.appendChild(opt);
+}
+}
+
+
+</script>
+{% endblock script %}

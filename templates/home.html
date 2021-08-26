@@ -1,0 +1,553 @@
+{% extends "base.html" %}
+
+{% block style %}
+
+/* General styling */
+/*__________________________________________________________*/
+.big-banner {
+background-image: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%,rgba(255,255,255,0.1) 100%),
+url('https://mdbootstrap.com/img/new/fluid/city/018.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+}
+
+#wrapper {
+position: relative;
+min-height: 100%;
+height: auto !important;
+height: 100%;
+}
+
+#content {
+padding-bottom: 100%; // height of footer must be specified as padding of the content-div
+}
+
+#footer {
+position: absolute;
+bottom: 0;
+width: 100%;
+}
+
+.jumbotron {
+margin: 0;
+}
+
+/*____________________________________________________________*/
+/* Carousel styling */
+/*____________________________________________________________*/
+.carousel {
+margin: 0px;
+height: auto;
+}
+
+.carousel-caption {
+bottom: 70px;
+}
+.carousel-caption h5 {
+font-size: 45px;
+text-transform: uppercase;
+letter-spacing: 2px;
+margin-top: 25px;
+font-family: merienda;
+}
+.carousel-caption p {
+width: 60%;
+margin: auto;
+font-size: 18px;
+line-height: 1.9;
+font-family: poppins;
+}
+.carousel-caption a {
+text-transform: uppercase;
+background: #262626;
+padding: 10px 30px;
+display: inline-block;
+color: #fff;
+margin-top: 15px;
+}
+
+.carousel .carousel-indicators {
+bottom: -15px;
+}
+
+.carousel .carousel-indicators li {
+background-color: #999 !important;
+height: 7px !important;
+border-radius: 0px !important;
+width: 10% !important;
+}
+
+.carousel .carousel-indicators .active {
+background-color: #111 !important;
+border-radius: 0%;
+}
+.carousel .carousel-control-prev-icon, .carousel-control-next-icon {
+background-color: grey !important;
+}
+
+.w-100 {
+height: 50vh;
+}
+
+/*____________________________________________________________*/
+/* especially for the top carousel */
+#carouselExampleIndicators .carousel-indicators{
+margin-top: 0px;
+bottom: 0px;
+}
+#carouselExampleIndicators .carousel-indicators .active {
+background-color: #fff !important;
+}
+#carouselExampleIndicators .carousel-indicators li {
+background-color: black !important;
+}
+/*____________________________________________________________*/
+
+
+/*__________________________________________________________*/
+/* for Tablets */
+@media only screen and (max-width: 850px) {
+.carousel {
+margin-top: 0px;
+}
+}
+/*__________________________________________________________*/
+/* for Smartphones */
+@media only screen and (max-width: 400px) {
+.carousel {
+margin-top: 0px;
+}
+.carousel-caption {
+bottom: 20px;
+display: inline-block !important;
+}
+.carousel-caption h5 {
+font-size: 16px;
+text-transform: uppercase;
+letter-spacing: 2px;
+margin-top: 10px;
+font-family: merienda;
+}
+.carousel-caption h4 {
+font-size: 18px;
+margin-top: 10px;
+font-family: merienda;
+}
+.carousel-caption p {
+width: 60%;
+margin: auto;
+font-size: 12px;
+line-height: 1.9;
+font-family: poppins;
+}
+.carousel-caption a {
+font-size: 12px;
+text-transform: uppercase;
+background: #262626;
+padding: 10px 30px;
+display: inline-block;
+color: #fff;
+margin-top: 10px;
+}
+}
+/*__________________________________________________________*/
+/* for Category Navbar zum disablen des Hover-Effekts */
+#custom-navbar-brand:hover {
+color: white !important;
+}
+/*__________________________________________________________*/
+
+{% endblock style %}
+
+
+{% block carousel %}
+
+<!-- Carousel wrapper -->
+<div class="carousel slide" data-bs-ride="carousel" id="carouselExampleIndicators" data-bs-interval="5000">
+    <ol class="carousel-indicators">
+        <li class="active" data-bs-slide-to="0" data-bs-target="#carouselExampleIndicators"></li>
+        <li data-bs-slide-to="1" data-bs-target="#carouselExampleIndicators"></li>
+        <li data-bs-slide-to="2" data-bs-target="#carouselExampleIndicators"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img alt="First slide" class="d-block w-100"
+                 src="https://mdbootstrap.com/img/Photos/Others/images/76.jpg   ">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="animated bounceInRight" style="animation-delay: 1s">Bienvenidos a Ojos de Selva</h5>
+                <h4 class="animated bounceInLeft" style="animation-delay: 2s">Ropa alternativa<br>by Jhoselin Navarro
+                </h4>
+                <p class="animated bounceInRight" style="animation-delay: 3s"><a href="#">Más información</a></p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img alt="Second slide" class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Others/images/77.jpg">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="animated slideInDown" style="animation-delay: 1s">web design</h5>
+                <p class="animated fadeInUp" style="animation-delay: 2s">Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
+                <p class="animated zoomIn" style="animation-delay: 3s"><a href="#">More Info</a></p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img alt="Third slide" class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Others/images/78.jpg">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="animated zoomIn" style="animation-delay: 1s">Digital Marketing</h5>
+                <p class="animated fadeInLeft" style="animation-delay: 2s">Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
+                <p class="animated zoomIn" style="animation-delay: 3s"><a href="#">More Info</a></p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" data-bs-slide="prev" href="#carouselExampleIndicators" role="button"><span
+            aria-hidden="true" class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span></a>
+    <a class="carousel-control-next" data-bs-slide="next" href="#carouselExampleIndicators" role="button"><span
+            aria-hidden="true" class="carousel-control-next-icon"></span> <span class="sr-only">Next</span></a>
+</div>
+<!-- Carousel wrapper -->
+
+{% endblock carousel %}
+
+
+{% block content %}
+<main class="mt-0">
+
+    <div id="wrapper">
+
+        <div class="jumbotron big-banner pt-5 pb-5" style="margin-top: -70px;">
+
+            <div class="container">
+
+                <!--Section: Content-->
+                <section>
+
+
+                    <div class="row">
+                        <div class="col-md-6 gx-5 mb-4">
+                            <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5"
+                                 data-mdb-ripple-color="light">
+                                <img src="https://media.istockphoto.com/photos/eyes-of-a-jaguar-picture-id933893664"
+                                     class="img-fluid"/>
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 gx-5 mb-4">
+                            <h4><strong>Quién es Ojos de Selva?</strong></h4>
+                            <p class="text-muted">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
+                                eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
+                                sapiente illo possimus, commodi dignissimos obcaecati illum maiores corporis.
+                            </p>
+                            <p><strong>Cuál es nuestra misión?</strong></p>
+                            <p class="text-muted">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod itaque voluptate
+                                nesciunt laborum incidunt. Officia, quam consectetur. Earum eligendi aliquam illum
+                                alias, unde optio accusantium soluta, iusto molestiae adipisci et?
+                            </p>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+        <div class="jumbotron big-banner pt-3 pb-2">
+            <div class="container">
+
+                <hr class="my-5"/>
+
+                <section class="text-center" id="nuestrosProductos">
+                    <h4 class="mb-4"><strong>Nuestros productos</strong></h4>
+
+                    <!--Navbar-->
+                    <nav class="navbar navbar-expand-lg navbar-light mdb-color lighten-3 mt-3 mb-5">
+
+                        <!-- Navbar brand -->
+                        <span class="navbar-brand" id="custom-navbar-brand">Categories:</span>
+
+                        <!-- Collapse button -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#basicExampleNav"
+                                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <!-- Collapsible content -->
+                        <div id="category-bar" class="collapse navbar-collapse" id="basicExampleNav">
+
+                            <!-- Links -->
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="/#nuestrosProductos">All</a>
+                                </li>
+
+                                {% for category in category_list %}
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                       href="{% url 'core:category' slug=category %}#nuestrosProductos">{{category}}</a>
+                                </li>
+                                {% endfor %}
+
+
+                            </ul>
+                            <!-- Links -->
+
+                            <form class="form-inline">
+                                <div class="md-form my-0">
+                                    <input class="form-control mr-sm-2" type="text" placeholder="Search"
+                                           aria-label="Search">
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Collapsible content -->
+
+                    </nav>
+                    <!--/.Navbar-->
+
+                </section>
+
+
+                <!--Section: Products v.3-->
+                <section class="text-center mb-4">
+
+                    <div class="row">
+
+                        {% for item in object_list %}
+                        <div class="col">
+
+                            <div class="card mb-3 text-center" style="width: 18rem;">
+
+                                <div class="view overlay">
+
+                                    <!-- if there is more than one image of the product, then create carousel, else no carousel-->
+                                    {% if item.image2.url != "" %}
+
+                                    <div class="carousel slide" data-bs-ride="carousel" id="carousel{{ item.title }}"
+                                         data-bs-interval="3000">
+                                        <ol class="carousel-indicators">
+                                            <li class="active" data-bs-slide-to="0"
+                                                data-bs-target="#carousel{{ item.title }}"></li>
+                                            {% if item.image2.url != '' %}
+                                            <li data-bs-slide-to="1" data-bs-target="#carousel{{ item.title }}"></li>
+                                            {% endif %}
+                                            {% if item.image3.url != '' %}
+                                            <li data-bs-slide-to="2" data-bs-target="#carousel{{ item.title }}"></li>
+                                            {% endif %}
+                                            {% if item.image4.url != '' %}
+                                            <li data-bs-slide-to="3" data-bs-target="#carousel{{ item.title }}"></li>
+                                            {% endif %}
+                                            {% if item.image5.url != '' %}
+                                            <li data-bs-slide-to="4" data-bs-target="#carousel{{ item.title }}"></li>
+                                            {% endif %}
+                                            {% if item.image6.url != '' %}
+                                            <li data-bs-slide-to="5" data-bs-target="#carousel{{ item.title }}"></li>
+                                            {% endif %}
+                                            {% if item.image7.url != '' %}
+                                            <li data-bs-slide-to="6" data-bs-target="#carousel{{ item.title }}"></li>
+                                            {% endif %}
+                                            {% if item.image8.url != '' %}
+                                            <li data-bs-slide-to="7" data-bs-target="#carousel{{ item.title }}"></li>
+                                            {% endif %}
+                                            {% if item.image9.url != '' %}
+                                            <li data-bs-slide-to="8" data-bs-target="#carousel{{ item.title }}"></li>
+                                            {% endif %}
+                                            {% if item.image10.url != '' %}
+                                            <li data-bs-slide-to="9" data-bs-target="#carousel{{ item.title }}"></li>
+                                            {% endif %}
+
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <!-- <img class="img-fluid"
+                                                      style="display: block; margin-left: auto; margin-right: auto;"
+                                                      src="{{ product.image_url }}" alt="First slide">-->
+                                                <img src="{{ item.image.url }}" class="img-fluid" alt="First slide">
+                                                <a href="{{ item.get_absolute_url }}">
+                                                    <div class="mask rgba-white-slight"></div>
+                                                </a>
+                                            </div>
+
+                                            {% if item.image2.url != '' %}
+                                            <div class="carousel-item">
+                                                <img src="{{ item.image2.url }}" class="img-fluid">
+                                                <a href="{{ item.get_absolute_url }}">
+                                                    <div class="mask rgba-white-slight"></div>
+                                                </a>
+                                            </div>
+                                            {% endif %}
+                                            {% if item.image3.url != '' %}
+                                            <div class="carousel-item">
+                                                <img src="{{ item.image3.url }}" class="img-fluid">
+                                                <a href="{{ item.get_absolute_url }}">
+                                                    <div class="mask rgba-white-slight"></div>
+                                                </a>
+                                            </div>
+                                            {% endif %}
+                                            {% if item.image4.url != '' %}
+                                            <div class="carousel-item">
+                                                <img src="{{ item.image4.url }}" class="img-fluid">
+                                                <a href="{{ item.get_absolute_url }}">
+                                                    <div class="mask rgba-white-slight"></div>
+                                                </a>
+                                            </div>
+                                            {% endif %}
+                                            {% if item.image5.url != '' %}
+                                            <div class="carousel-item">
+                                                <img src="{{ item.image5.url }}" class="img-fluid">
+                                                <a href="{{ item.get_absolute_url }}">
+                                                    <div class="mask rgba-white-slight"></div>
+                                                </a>
+                                            </div>
+                                            {% endif %}
+                                            {% if item.image6.url != '' %}
+                                            <div class="carousel-item">
+                                                <img src="{{ item.image6.url }}" class="img-fluid">
+                                                <a href="{{ item.get_absolute_url }}">
+                                                    <div class="mask rgba-white-slight"></div>
+                                                </a>
+                                            </div>
+                                            {% endif %}
+                                            {% if item.image7.url != '' %}
+                                            <div class="carousel-item">
+                                                <img src="{{ item.image7.url }}" class="img-fluid">
+                                                <a href="{{ item.get_absolute_url }}">
+                                                    <div class="mask rgba-white-slight"></div>
+                                                </a>
+                                            </div>
+                                            {% endif %}
+                                            {% if item.image8.url != '' %}
+                                            <div class="carousel-item">
+                                                <img src="{{ item.image8.url }}" class="img-fluid">
+                                                <a href="{{ item.get_absolute_url }}">
+                                                    <div class="mask rgba-white-slight"></div>
+                                                </a>
+                                            </div>
+                                            {% endif %}
+                                            {% if item.image9.url != '' %}
+                                            <div class="carousel-item">
+                                                <img src="{{ item.image9.url }}" class="img-fluid">
+                                                <a href="{{ item.get_absolute_url }}">
+                                                    <div class="mask rgba-white-slight"></div>
+                                                </a>
+                                            </div>
+                                            {% endif %}
+                                            {% if item.image10.url != '' %}
+                                            <div class="carousel-item">
+                                                <img src="{{ item.image10.url }}" class="img-fluid">
+                                                <a href="{{ item.get_absolute_url }}">
+                                                    <div class="mask rgba-white-slight"></div>
+                                                </a>
+                                            </div>
+                                            {% endif %}
+
+
+                                            <button class="carousel-control-prev" data-bs-slide="prev"
+                                                    href="#carousel{{ item.title }}"
+                                                    role="button"><span
+                                                    aria-hidden="true" class="carousel-control-prev-icon"></span> <span
+                                                    class="sr-only">Previous</span></button>
+                                            <button class="carousel-control-next" data-bs-slide="next"
+                                                    href="#carousel{{ item.title }}"
+                                                    role="button"><span
+                                                    aria-hidden="true" class="carousel-control-next-icon"></span> <span
+                                                    class="sr-only">Next</span></button>
+
+                                        </div>
+                                    </div>
+
+                                    {% else %}
+                                    <img src="{{ item.image.url }}" class="img-fluid" alt="...">
+                                    <a href="{{ item.get_absolute_url }}">
+                                        <div class="mask rgba-white-slight"></div>
+                                    </a>
+                                    {% endif %}
+
+
+                                    <div class="card-body text-center">
+                                        <a href="" class="grey-text">
+                                            <h5>{{ item.get_category_display }}</h5>
+                                        </a>
+                                        <h5>
+                                            <strong>
+                                                <a href="{{ item.get_absolute_url }}" class="dark-grey-text">
+                                                    {{ item.title }}
+                                                    <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span>
+                                                    <br>
+                                                    <span class="badge badge-pill {{ item.get_label_display }}-color">Talla: {{item.get_size_display }}</span>
+                                                </a>
+                                            </strong>
+                                        </h5>
+
+                                        <h4 class="font-weight-bold blue-text">
+                                            <strong>$
+                                                {% if item.discount_price %}
+                                                {{ item.discount_price }}
+                                                {% else %}
+                                                {{ item.price }}
+                                                {% endif %}
+                                            </strong>
+                                        </h4>
+
+                                    </div>
+                                    <div class="card-footer text-muted">
+                                        Disponible
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </section>
+                <!--Section: Products v.3-->
+
+                <!--Pagination-->
+
+                {% if is_paginated %}
+                <nav class="d-flex justify-content-center wow fadeIn">
+                    <ul class="pagination pg-blue">
+
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        {% endif %}
+
+                        <li class="page-item active">
+                            <a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% endif %}
+
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+{% endblock content %}
+
+

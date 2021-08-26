@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<main>
+    <div class="container wow fadeIn mb-5">
+        <h2 class="my-5 h2 text-center">Formulario de pago</h2>
+        <div class="row">
+
+            <div class="card">
+                <form method="POST" class="card-body">
+                    {% csrf_token %}
+
+                    <h4>Departamento para envío</h4>
+
+                    <div class='hideable_shipping_form'>
+
+                        {{ form.chosen_department }}
+
+                        <br><br>
+                        <p><u>Costos para envío</u></p>
+                        <ul style="list-style-type: circle;">
+                            {% for name, value in department_prices %}
+                            <li id='{{ name }}'>{{ name }}: {{ value }} Bs.</li>
+                            {% endfor %}
+                        </ul>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    {{ form.nombre }}
+                                    <label class="form-label">Nombre <font color="red">*</font></label>
+                                    <div id="emailHelp" class="form-text">We'll never share your email with anyone
+                                        else.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    {{ form.apellido }}
+                                    <label class="form-label">Apellido <font color="red">*</font></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            {{ form.phoneNumber }}
+                            <label class="form-label">Número de teléfono <font color="red">*</font></label>
+                            <div id="phoneHelp" class="form-text">Por favor solo dígitos, adelante puede estar un '+' para el prefijo.</div>
+                        </div>
+
+
+                        {%comment%}
+                        <div class="md-form mb-5">
+                            <input type='text' placeholder='1234 Main St' id='shipping_address'
+                                   name='shipping_address' class='form-control'/>
+                            <label for="shipping_address" class="">Address</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="password" id="typePassword" class="form-control"/>
+                            <label class="form-label" for="typePassword">Password input</label>
+                        </div>
+                        {%endcomment%}
+
+
+                        {% include "order_snippet.html" %}
+
+                        <hr class="mb-4">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block mb-5">
+                            Reservar pedido en Ojos de Selva
+                        </button>
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+</main>
+
+{% endblock content %}
+
+{% block extra_scripts %}
+<script>
+var hideable_shipping_form = $('.hideable_shipping_form');
+var hideable_billing_form = $('.hideable_billing_form');
+
+var use_default_shipping = document.querySelector("input[name=use_default_shipping]");
+var use_default_billing = document.querySelector("input[name=use_default_billing]");
+
+use_default_shipping.addEventListener('change', function() {
+  if (this.checked) {
+    hideable_shipping_form.hide();
+  } else {
+    hideable_shipping_form.show();
+  }
+})
+
+use_default_billing.addEventListener('change', function() {
+  if (this.checked) {
+    hideable_billing_form.hide();
+  } else {
+    hideable_billing_form.show();
+  }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+<script>
+
+       $(document).ready(function(){
+            $('#id_chosen_department').change(function(){
+                const selected_department = $("#id_chosen_department :selected").val();
+                const words = document.getElementById(selected_department).textContent;
+                const words2 = document.getElementById(selected_department).textContent;
+                const split = words.split(' ');
+                const split2 = words2.split(':');
+                const department = split[0];
+                const editedDepartment = department.slice(0, -1);
+                const price = split[split.length - 2];
+                const price_string = price + " Bs.";
+                $('#shipping_department').html(editedDepartment);
+                $('#shipping_price').html(price_string);
+                const total_price = parseInt({{order.get_total}}) + parseInt(price);
+                const total_price_string = total_price + " Bs.";
+                $('#total_price').html(total_price_string);
+            });
+        });
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+{% endblock extra_scripts %}

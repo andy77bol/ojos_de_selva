@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+    <div class="container">
+
+        <div class="table-responsive">
+            <h2>Resumen del pedido</h2>
+            <table class="table">
+                <thead>
+                <tr align="center">
+                    <!--<th scope="col">#</th>-->
+                    <th scope="col">Artículo</th>
+                    <th scope="col">Total del artículo</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for order_item in order.items.all %}
+                <tr align="center">
+                    <!--<th scope="row">{{ forloop.counter }}</th>-->
+                    <td><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Orange-Whole-%26-Split.jpg/1200px-Orange-Whole-%26-Split.jpg"
+                            class="img-thumbnail" alt="..." style="width:100px;">
+                        <br> <strong>{{ order_item.item.title }}</strong>
+                        <br> <strong>Precio: </strong>
+
+                        {% if order_item.item.discount_price %}
+                        {{ order_item.item.discount_price }}
+                        {% else %}
+                        {{ order_item.item.price }}
+                        {% endif %}
+
+                        Bvs.
+                        <br> <strong>Talla: </strong> {{ order_item.chosenSize }}
+                        <br> <strong>Color: </strong> {{ order_item.chosenColor }}
+                        <br> <strong>Cantidad: </strong> {{ order_item.quantity }}
+
+                        {% comment %}
+                        <a href="{% url 'core:remove-single-item-from-cart' order_item.item.slug %}"><i
+                                class="fas fa-minus mr-2"></i></a>
+                        {{ order_item.quantity }}
+                        <a href="{% url 'core:add-to-cart' order_item.item.slug %}"><i class="fas fa-plus ml-2"></i></a>
+                        {% endcomment %}
+
+                    </td>
+
+
+                    <td>
+                        {% if order_item.item.discount_price %}
+                        <br><br>
+                        {{ order_item.get_total_discount_item_price }} Bvs.
+                        <br><br><span
+                            class="badge badge-primary">Ahorrando<br>{{ order_item.get_amount_saved }} Bvs.</span>
+                        {% else %}
+                        ${{ order_item.get_total_item_price }}
+                        {% endif %}
+
+                        {%comment%}
+                        <a style='color: red;' href="{% url 'core:remove-from-cart' order_item.item.slug %}">
+                            <i class="fas fa-trash float-right"></i>
+                        </a>
+                        {%endcomment%}
+
+                        <a style='color: red;'
+                           href="{% url 'core:remove-from-cart' slug=order_item.item.slug chosen_size=order_item.chosenSize chosen_color=order_item.chosenColor %}">
+                            <i class=" fas fa-trash float-right"></i>
+                        </a>
+
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan='5'>No tiene artículos en su carrito.</td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <a class='btn btn-primary float-right' href='/'>Continue shopping</a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+                {% if order.get_total %}
+                <tr align="center">
+                    <td colspan="1"><b><strong>Total del pedido: </strong></b></td>
+                    <td><b>{{ order.get_total }} Bvs.</b></td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <a class='btn btn-warning float-right ml-2' href='/checkout/'>Finalizar su pedido</a>
+                        <a class='btn btn-primary float-right' href='/'>Seguir comprando</a>
+                    </td>
+                </tr>
+                {% endif %}
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</main>
+
+{% endblock content %}
+
+

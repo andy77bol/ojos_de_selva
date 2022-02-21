@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c7855765-1679-4ce4-81dc-fc0443039477" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djecommerce/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/djecommerce/settings/base.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,10 +95,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="277" y="52" key="SettingsEditor" timestamp="1645360328089">
+    <state x="277" y="52" key="SettingsEditor" timestamp="1645405153399">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="277" y="52" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1645360328089" />
+    <state x="277" y="52" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1645405153399" />
     <state x="465" y="234" key="com.intellij.ide.util.TipDialog" timestamp="1645360028874">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

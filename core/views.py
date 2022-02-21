@@ -191,8 +191,7 @@ class HomeView(ListView):
 
         object_list = Item.objects.all().order_by('title')
 
-        # device = self.request.COOKIES['device']
-        device = 1
+        device = self.request.COOKIES['device']
         customer_qs = Customer.objects.filter(device=device)
 
         if customer_qs.exists():

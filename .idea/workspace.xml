@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c7855765-1679-4ce4-81dc-fc0443039477" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +33,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../guest_user_shopping_cart-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sample-django-digitalOcean" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -99,6 +100,10 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="526" y="212" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.816@0.0.1536.816" timestamp="1645446539380" />
+    <state x="549" y="164" key="FileChooserDialogImpl" timestamp="1645454085470">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="549" y="164" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1645454085470" />
     <state x="277" y="52" key="SettingsEditor" timestamp="1645405153399">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

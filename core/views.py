@@ -19,7 +19,7 @@ from .models import Item, OrderItem, Order, Customer
 
 from django.contrib import auth
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
+#stripe.api_key = settings.STRIPE_SECRET_KEY
 
 CATEGORY_CHOICES = (
     ('Shirt', 'Shirt'),

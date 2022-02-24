@@ -170,3 +170,24 @@ class Address(models.Model):
     class Meta:
         verbose_name_plural = 'Addresses'
 
+
+# this class is to show various past project of the company
+class Project(models.Model):
+    title = models.CharField(max_length=100)
+    month = models.CharField(max_length=2, validators=[RegexValidator(r'^\d{1,10}$')])
+    year = models.CharField(max_length=4, validators=[RegexValidator(r'^\d{1,10}$')])
+    description = models.TextField()
+    image = models.ImageField()
+    image2 = models.ImageField(blank=True, null=True)
+    image3 = models.ImageField(blank=True, null=True)
+    image4 = models.ImageField(blank=True, null=True)
+    image5 = models.ImageField(blank=True, null=True)
+    image6 = models.ImageField(blank=True, null=True)
+    image7 = models.ImageField(blank=True, null=True)
+    image8 = models.ImageField(blank=True, null=True)
+    image9 = models.ImageField(blank=True, null=True)
+    image10 = models.ImageField(blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+

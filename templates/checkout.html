@@ -20,9 +20,11 @@
 
                         <br><br>
                         <p><u>Costos para envío</u></p>
+                        <p><I><font size="2">1° precio: hasta 5 prendas<br>2° precio: a partir de 5 prendas<br>3° precio: a partir de 10 prendas</font></I></p>
                         <ul style="list-style-type: circle;">
                             {% for name, value in department_prices %}
-                            <li id='{{ name }}'>{{ name }}: {{ value }} Bs.</li>
+                            <!-- only increase price when more clothes are going to be shipped -->
+                            <li id='{{ name }}'>{{ name }}: {{ value }} / {{value|add:10}} / {{value|add:20}} Bs.</li>
                             {% endfor %}
                         </ul>
 
@@ -48,7 +50,9 @@
                         <div class="form-floating mb-3">
                             {{ form.phoneNumber }}
                             <label class="form-label">Número de teléfono <font color="red">*</font></label>
-                            <div id="phoneHelp" class="form-text">Por favor solo dígitos, adelante puede estar un '+' para el prefijo.</div>
+                            <div id="phoneHelp" class="form-text">Por favor solo dígitos, adelante puede estar un '+'
+                                para el prefijo.
+                            </div>
                         </div>
 
 
@@ -119,28 +123,72 @@ use_default_billing.addEventListener('change', function() {
 
 
 
+
 </script>
 
 <script>
 
+       // wichtig fürs Verständnis
+       // wir führen exakt die gleichen Befehle zweimal aus, einmal beim Laden der Seite und einmal bei Verändern des ausgewählten departments
+       // Grund: in allen Fällen muss unten der richtige Preis mit den richtigen Versandkosten angezeigt werden
+
        $(document).ready(function(){
+
+            const selected_department = $("#id_chosen_department :selected").val();
+                const words = document.getElementById(selected_department).textContent;
+                const words2 = document.getElementById(selected_department).textContent;
+                const split = words.split(' ');
+                // split2 zerlegt string in listenelemente getrennt durch den doppelpunkt, um department zu bekommen
+                const split2 = words2.split(':');
+                $('#shipping_department').html(split2[0]);
+
+                // mit clothes bekommen wir die Gesamtanzahl an bestellten Kleidungsstücken
+                const clothes = document.getElementById('clothes_number').innerText;
+                // daraus bestimmen wir die Versandkosten, je nach Kleidungsstückanzahl
+                // zuerst wird Variable mit höchstem Preis initialisiert
+                var price = split[split.length - 2];
+                if (clothes < 5) {
+                    var price = split[split.length - 6];
+                } else if (clothes >= 5) {
+                    var price = split[split.length - 4];
+                }
+
+                const price_string = price + " Bs.";
+                $('#shipping_price').html(price_string);
+
+                const total_price = parseInt({{order.get_total}}) + parseInt(price);
+                const total_price_string = total_price + " Bs.";
+                $('#total_price').html(total_price_string);
+
             $('#id_chosen_department').change(function(){
                 const selected_department = $("#id_chosen_department :selected").val();
                 const words = document.getElementById(selected_department).textContent;
                 const words2 = document.getElementById(selected_department).textContent;
                 const split = words.split(' ');
+                // split2 zerlegt string in listenelemente getrennt durch den doppelpunkt, um department zu bekommen
                 const split2 = words2.split(':');
-                const department = split[0];
-                const editedDepartment = department.slice(0, -1);
-                const price = split[split.length - 2];
+                $('#shipping_department').html(split2[0]);
+
+                // mit clothes bekommen wir die Gesamtanzahl an bestellten Kleidungsstücken
+                const clothes = document.getElementById('clothes_number').innerText;
+                // daraus bestimmen wir die Versandkosten, je nach Kleidungsstückanzahl
+                // zuerst wird Variable mit höchstem Preis initialisiert
+                var price = split[split.length - 2];
+                if (clothes < 5) {
+                    var price = split[split.length - 6];
+                } else if (clothes >= 5) {
+                    var price = split[split.length - 4];
+                }
+
                 const price_string = price + " Bs.";
-                $('#shipping_department').html(editedDepartment);
                 $('#shipping_price').html(price_string);
+
                 const total_price = parseInt({{order.get_total}}) + parseInt(price);
                 const total_price_string = total_price + " Bs.";
                 $('#total_price').html(total_price_string);
             });
         });
+
 
 
 

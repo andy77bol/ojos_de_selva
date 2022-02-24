@@ -3,7 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="c7855765-1679-4ce4-81dc-fc0443039477" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/DJI_0104.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/checkout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/order_snippet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/order_snippet.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,10 +42,13 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sample-django-digitalOcean" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Python\PycharmProjects\django-ecommerce-master_version11\templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Python\PycharmProjects\django-ecommerce-master_version6\templates" />
       <recent name="D:\Python\PycharmProjects\django-ecommerce-master_version2\templates" />
@@ -108,10 +120,10 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="277" y="52" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1645405153399" />
-    <state x="465" y="234" key="com.intellij.ide.util.TipDialog" timestamp="1645444695049">
+    <state x="465" y="234" key="com.intellij.ide.util.TipDialog" timestamp="1645729178972">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="465" y="234" key="com.intellij.ide.util.TipDialog/0.0.1536.816@0.0.1536.816" timestamp="1645444695049" />
+    <state x="465" y="234" key="com.intellij.ide.util.TipDialog/0.0.1536.816@0.0.1536.816" timestamp="1645729178972" />
     <state x="431" y="137" width="672" height="678" key="search.everywhere.popup" timestamp="1645445183849">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

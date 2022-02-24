@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Item, OrderItem, Order, Customer
+from .models import Item, OrderItem, Order, Customer, Project
 from allauth.socialaccount.models import SocialToken, SocialAccount, SocialApp, EmailAddress
 
 
@@ -38,10 +38,19 @@ class CustomerAdmin(admin.ModelAdmin):
     ]
 
 
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = [
+        'title',
+        'month',
+        'year'
+    ]
+
+
 admin.site.register(Item)
 admin.site.register(OrderItem)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(Customer, CustomerAdmin)
+admin.site.register(Project, ProjectAdmin)
 admin.site.unregister(SocialToken)
 admin.site.unregister(SocialAccount)
 admin.site.unregister(SocialApp)

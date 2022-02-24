@@ -15,7 +15,7 @@ from django.views.generic import ListView, DetailView, View
 from django.http import HttpResponseRedirect
 
 from .forms import CheckoutForm, OrderItemForm
-from .models import Item, OrderItem, Order, Customer
+from .models import Item, OrderItem, Order, Customer, Project
 
 from django.contrib import auth
 
@@ -86,7 +86,7 @@ class CheckoutView(View):
             context = {
                 'form': form,
                 'order': order,
-                'department_prices': department_prices,
+                'department_prices': department_prices
             }
 
             return render(self.request, "checkout.html", context)
@@ -208,6 +208,36 @@ class HomeView(ListView):
 
         args = {
             'object_list': object_list, 'category_list': category_list, 'order': order
+        }
+        return render(request, self.template_name, args)
+
+
+# page that shows past projects from the company
+class ProjectView(ListView):
+    template_name = "projects.html"
+
+    def get(self, request, *args, **kwargs):
+        # this command orders all projects first ascending by year and then by month
+        project_list = Project.objects.all().order_by('year', 'month')
+
+        device = self.request.COOKIES['device']
+        customer_qs = Customer.objects.filter(device=device)
+
+        if customer_qs.exists():
+            customer = Customer.objects.filter(device=device).first()
+        else:
+            customer = Customer.objects.create(device=device)
+
+        order_qs = Order.objects.filter(customer=customer, ordered=False)
+
+        if order_qs.exists():
+            order = Order.objects.get(customer=customer, ordered=False)
+        else:
+            order = None
+        # the project list includes all past projects that have been registered
+        # the order argument is needed to show also in the navbar of this page the current shoppingcart
+        args = {
+            'project_list': project_list, 'order': order
         }
         return render(request, self.template_name, args)
 

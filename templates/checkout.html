@@ -112,18 +112,6 @@ use_default_billing.addEventListener('change', function() {
   }
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
 <script>
@@ -145,12 +133,12 @@ use_default_billing.addEventListener('change', function() {
                 // mit clothes bekommen wir die Gesamtanzahl an bestellten Kleidungsstücken
                 const clothes = document.getElementById('clothes_number').innerText;
                 // daraus bestimmen wir die Versandkosten, je nach Kleidungsstückanzahl
-                // zuerst wird Variable mit höchstem Preis initialisiert
-                var price = split[split.length - 2];
                 if (clothes < 5) {
                     var price = split[split.length - 6];
-                } else if (clothes >= 5) {
+                } else if (clothes >= 5 && clothes < 10) {
                     var price = split[split.length - 4];
+                } else {
+                    var price = split[split.length - 2];
                 }
 
                 const price_string = price + " Bs.";

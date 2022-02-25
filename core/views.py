@@ -147,9 +147,14 @@ class CheckoutView(View):
                     order.ref_code = create_ref_code()
                     order.customer = new_customer
                     order.department = chosen_department
+                    clothes_number = order.get_clothes_number()
                     for name, value in DEPARTMENT_PRICES:
                         if name == chosen_department:
                             shipping_price = value
+                            if 5 <= clothes_number < 10:
+                                shipping_price += 10
+                            elif clothes_number >= 10:
+                                shipping_price += 20
                     order.total_order_price = order.get_total() + shipping_price
                     order.save()
 

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from import_export.admin import ImportExportMixin
+from import_export.admin import ImportExportModelAdmin
 
 from .models import Item, OrderItem, Order, Customer, Project
 from allauth.socialaccount.models import SocialToken, SocialAccount, SocialApp, EmailAddress
@@ -32,7 +33,7 @@ class OrderAdmin(admin.ModelAdmin):
     actions = [make_refund_accepted]
 
 
-class CustomerAdmin(ImportExportMixin, admin.ModelAdmin):
+class CustomerAdmin(ImportExportModelAdmin):
     list_display = [
         'name',
         'phone'

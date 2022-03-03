@@ -17,7 +17,9 @@ ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split("
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 # hier True setzen um zu testen
-DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
+# ich glaube, mit dev database in DigitalOcean kann website nur im development mode funktionieren
+# für eine produktionsdatabase müsste man die database auf postgresql... updaten
+DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "True") == "True"
 
 if DEVELOPMENT_MODE is True:
     DATABASES = {

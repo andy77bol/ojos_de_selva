@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c7855765-1679-4ce4-81dc-fc0443039477" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djecommerce/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/djecommerce/settings/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/img/DJI_0104.JPG" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,10 +108,10 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="549" y="164" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1645454085470" />
-    <state x="555" y="77" key="SettingsEditor" timestamp="1646324849144">
+    <state x="555" y="77" key="SettingsEditor" timestamp="1646327515039">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="555" y="77" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1646324849144" />
+    <state x="555" y="77" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1646327515039" />
     <state x="465" y="234" key="com.intellij.ide.util.TipDialog" timestamp="1646308235452">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -120,9 +120,9 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.816@0.0.1536.816" timestamp="1646313162818" />
-    <state x="431" y="137" width="672" height="678" key="search.everywhere.popup" timestamp="1646317645327">
+    <state x="431" y="137" width="672" height="678" key="search.everywhere.popup" timestamp="1646327333380">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="431" y="137" width="672" height="678" key="search.everywhere.popup/0.0.1536.816@0.0.1536.816" timestamp="1646317645327" />
+    <state x="431" y="137" width="672" height="678" key="search.everywhere.popup/0.0.1536.816@0.0.1536.816" timestamp="1646327333380" />
   </component>
 </project>

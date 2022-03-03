@@ -199,15 +199,17 @@ class HomeView(ListView):
 
         object_list = Item.objects.all().order_by('title')
 
-        device = self.request.COOKIES['device']
-
         # this if block is to try a solution for the first time a customer visits page
-        # and does not have a cookie set for him yet
-        if device:
-            customer_qs = Customer.objects.filter(device=device)
-        else:
-            device = 1
-            customer_qs = Customer.objects.filter(device=device)
+        # and does not have a cookie set for him yet -> did not work
+        # if device:
+        #     customer_qs = Customer.objects.filter(device=device)
+        # else:
+        #     device = 1
+        #     customer_qs = Customer.objects.filter(device=device)
+
+        device = 1
+        device = self.request.COOKIES['device']
+        customer_qs = Customer.objects.filter(device=device)
 
         if customer_qs.exists():
             customer = Customer.objects.filter(device=device).first()

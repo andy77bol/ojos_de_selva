@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+
+{% block style %}
+
+/* "> *" has the effect to apply the CSS to all direct children of .custom-radio-list --> */
+.custom-radio-list > * {
+list-style-type: none;
+margin-right: 30px;
+}
+.custom-radio-list-two > * {
+list-style-type: none;
+}
+
+/*____________________________________________________________*/
+/* Carousel and Navbar styling */
+/*____________________________________________________________*/
+.carousel {
+margin: 0px;
+height: auto;
+}
+.carousel .carousel-indicators {
+bottom: -15px;
+}
+
+.carousel .carousel-indicators li {
+background-color: #999 !important;
+height: 7px !important;
+border-radius: 0px !important;
+width: 10% !important;
+}
+
+.carousel .carousel-indicators .active {
+background-color: #111 !important;
+border-radius: 0%;
+}
+.carousel .carousel-control-prev-icon, .carousel-control-next-icon {
+background-color: grey !important;
+}
+
+
+
+{% endblock style %}
+
+{% block content %}
+
+<main class="mt-0 pt-4">
+
+    <div class="container dark-grey-text mt-0">
+
+        {% for item in project_list %}
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+
+                <!-- if there is more than one image of the product, then create carousel, else no carousel-->
+                {% if item.image2.url != "" %}
+
+                <div class="carousel slide" data-bs-ride="carousel" id="carousel{{ item.title }}"
+                     data-bs-interval="5000">
+                    <ol class="carousel-indicators">
+                        <li class="active" data-bs-slide-to="0"
+                            data-bs-target="#carousel{{ item.title }}"></li>
+                        {% if item.image2.url != '' %}
+                        <li data-bs-slide-to="1" data-bs-target="#carousel{{ item.title }}"></li>
+                        {% endif %}
+                        {% if item.image3.url != '' %}
+                        <li data-bs-slide-to="2" data-bs-target="#carousel{{ item.title }}"></li>
+                        {% endif %}
+                        {% if item.image4.url != '' %}
+                        <li data-bs-slide-to="3" data-bs-target="#carousel{{ item.title }}"></li>
+                        {% endif %}
+                        {% if item.image5.url != '' %}
+                        <li data-bs-slide-to="4" data-bs-target="#carousel{{ item.title }}"></li>
+                        {% endif %}
+                        {% if item.image6.url != '' %}
+                        <li data-bs-slide-to="5" data-bs-target="#carousel{{ item.title }}"></li>
+                        {% endif %}
+                        {% if item.image7.url != '' %}
+                        <li data-bs-slide-to="6" data-bs-target="#carousel{{ item.title }}"></li>
+                        {% endif %}
+                        {% if item.image8.url != '' %}
+                        <li data-bs-slide-to="7" data-bs-target="#carousel{{ item.title }}"></li>
+                        {% endif %}
+                        {% if item.image9.url != '' %}
+                        <li data-bs-slide-to="8" data-bs-target="#carousel{{ item.title }}"></li>
+                        {% endif %}
+                        {% if item.image10.url != '' %}
+                        <li data-bs-slide-to="9" data-bs-target="#carousel{{ item.title }}"></li>
+                        {% endif %}
+
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{ item.image.url }}" class="img-fluid" alt="First slide">
+                        </div>
+
+                        {% if item.image2.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ item.image2.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if item.image3.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ item.image3.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if item.image4.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ item.image4.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if item.image5.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ item.image5.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if item.image6.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ item.image6.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if item.image7.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ item.image7.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if item.image8.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ item.image8.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if item.image9.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ item.image9.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+                        {% if item.image10.url != '' %}
+                        <div class="carousel-item">
+                            <img src="{{ item.image10.url }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+
+
+                        <button class="carousel-control-prev" data-bs-slide="prev"
+                                href="#carousel{{ item.title }}"
+                                role="button"><span
+                                aria-hidden="true" class="carousel-control-prev-icon"></span> <span
+                                class="sr-only">Previous</span></button>
+                        <button class="carousel-control-next" data-bs-slide="next"
+                                href="#carousel{{ item.title }}"
+                                role="button"><span
+                                aria-hidden="true" class="carousel-control-next-icon"></span> <span
+                                class="sr-only">Next</span></button>
+
+                    </div>
+                </div>
+
+                {% else %}
+                <img src="{{ item.image.url }}" class="img-fluid" alt="">
+                {% endif %}
+
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4 mt-1">
+
+                <!--Content-->
+                <div class="p-0">
+
+                    <h2>{{ item.title }}</h2>
+                    <h5>{{ item.month }}/{{ item.year }}</h5>
+
+                    <p>{{ item.description }}</p>
+
+                </div>
+                <!--Content-->
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+        {% endfor %}
+
+    </div>
+</main>
+
+{% endblock content %}

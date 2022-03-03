@@ -190,9 +190,12 @@ class HomeView(ListView):
     def get(self, request, *args, **kwargs):
         category_list = []
         for name, value in CATEGORY_CHOICES:
-            for item in Item.objects.all():
-                if item.category == value and not value in category_list:
-                    category_list.append(value)
+            # first check if there is any item in the database
+            item_qs = Item.objects.all()
+            if item_qs.exists():
+                for item in Item.objects.all():
+                    if item.category == value and not value in category_list:
+                        category_list.append(value)
 
         object_list = Item.objects.all().order_by('title')
 

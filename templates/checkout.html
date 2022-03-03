@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block content %}
 
@@ -20,7 +21,8 @@
 
                         <br><br>
                         <p><u>Costos para envío</u></p>
-                        <p><I><font size="2">1° precio: hasta 5 prendas<br>2° precio: a partir de 5 prendas<br>3° precio: a partir de 10 prendas</font></I></p>
+                        <p><I><font size="2">1° precio: hasta 5 prendas<br>2° precio: a partir de 5 prendas<br>3°
+                            precio: a partir de 10 prendas</font></I></p>
                         <ul style="list-style-type: circle;">
                             {% for name, value in department_prices %}
                             <!-- only increase price when more clothes are going to be shipped -->
@@ -76,12 +78,33 @@
                         <button type="submit" class="btn btn-primary btn-lg btn-block mb-5">
                             Reservar pedido en Ojos de Selva
                         </button>
+
+                         <div class="container">
+                            <h6>Código QR para pago</h6>
+                            <div class="row">
+                                <div class="col-auto shrink">
+                                    <img src="{% static 'img/QR_pago.jpg' %}" alt="QR for payment" class="img-thumbnail"
+                                         style="width: 100px;">
+                                </div>
+                                {%comment%}
+                                class 'col-auto shrink' shrinks width of column based on content, 'my-auto' centers vertically
+                                {%endcomment%}
+                                <div class="col-auto shrink my-auto" style="padding: 0;">
+                                    <a href="{% static 'img/QR_pago.jpg' %}" download='Pago Ojos de Selva'
+                                       class="download-btn">Download QR
+                                        <i class="fa fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
 
                 </form>
 
             </div>
+        </div>
 
         </div>
 </main>
@@ -111,6 +134,11 @@ use_default_billing.addEventListener('change', function() {
     hideable_billing_form.show();
   }
 })
+
+
+
+
+
 
 </script>
 
@@ -176,12 +204,6 @@ use_default_billing.addEventListener('change', function() {
                 $('#total_price').html(total_price_string);
             });
         });
-
-
-
-
-
-
 
 
 

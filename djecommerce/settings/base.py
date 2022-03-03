@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'django_countries',
 
     'core',
-    'multiselectfield'
+    'multiselectfield',
+    'import_export'
 ]
 
 MIDDLEWARE = [

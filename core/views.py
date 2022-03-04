@@ -207,8 +207,13 @@ class HomeView(ListView):
         #     device = 1
         #     customer_qs = Customer.objects.filter(device=device)
 
-        device = 1
-        device = self.request.COOKIES['device']
+        try:
+            device = self.request.COOKIES['device']
+        except KeyError:
+            device = 1
+        # device = 1
+        # device = self.request.COOKIES['device']
+
         customer_qs = Customer.objects.filter(device=device)
 
         if customer_qs.exists():

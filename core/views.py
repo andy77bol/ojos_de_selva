@@ -199,20 +199,13 @@ class HomeView(ListView):
 
         object_list = Item.objects.all().order_by('title')
 
-        # this if block is to try a solution for the first time a customer visits page
-        # and does not have a cookie set for him yet -> did not work
-        # if device:
-        #     customer_qs = Customer.objects.filter(device=device)
-        # else:
-        #     device = 1
-        #     customer_qs = Customer.objects.filter(device=device)
+        # this try except block is for the first visit of a user to the website, when he does not have the devicecookie set yet
+        # it worked
 
         try:
             device = self.request.COOKIES['device']
         except KeyError:
             device = 1
-        # device = 1
-        # device = self.request.COOKIES['device']
 
         customer_qs = Customer.objects.filter(device=device)
 

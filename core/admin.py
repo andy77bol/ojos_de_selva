@@ -40,7 +40,7 @@ class CustomerAdmin(ImportExportModelAdmin):
     ]
 
 
-class ProjectAdmin(admin.ModelAdmin):
+class ProjectAdmin(ImportExportModelAdmin):
     list_display = [
         'title',
         'month',
@@ -48,7 +48,13 @@ class ProjectAdmin(admin.ModelAdmin):
     ]
 
 
-admin.site.register(Item)
+class ItemAdmin(ImportExportModelAdmin):
+    list_display = [
+        'title'
+    ]
+
+
+admin.site.register(Item, ItemAdmin)
 admin.site.register(OrderItem)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(Customer, CustomerAdmin)
